@@ -11,7 +11,7 @@ const client = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true 
 client.connect();
 
 //establish connection on mongodb dabatase
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 const database = mongoose.connection;
 
 //check if there is an error on connecting database
