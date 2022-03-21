@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const MongoClient = require("mongodb").MongoClient;
 const routes = require('./routes/routes');
 
+app.use(cors());
+
 //allow heroku to connect to Mongodb
 const client = new MongoClient(process.env.MONGODB_URI, { useNewUrlParser: true });
 client.connect();
