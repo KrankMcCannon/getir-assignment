@@ -1,6 +1,5 @@
 const express = require('express');
 const Request = require('../model/request');
-// const Response = require('../model/response');
 
 const router = express.Router();
 
@@ -18,10 +17,12 @@ router.get('/getInfo', async (req, res) => {
     //filter between two number from req
     { $match: { totalCount: { $gte: req.body.minCount, $lte: req.body.maxCount } } },
     //remove useless fields
-    { $unset: "_id" },
-    { $unset: "value" },
-    { $unset: "counts" }
+    { $unset: ["_id", "value", "counts"] }
   ]);
+
+  if (!data) {
+    throw new Error('Something goes wrong with aggregate');
+  }
 
   try {
     const response = {
