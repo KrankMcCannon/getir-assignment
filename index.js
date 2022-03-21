@@ -24,7 +24,7 @@ const app = express();
 app.use(express.json());
 
 //allow client to get info on '/api/get-info' endpoint
-app.use('/api', routes)
+app.use('/', routes)
 
 //Allow server to listen on 3000 port
 app.listen(process.env.PORT, () => {
