@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const routes = require('./routes/routes');
 
 //establish connection on mongodb dabatase
-mongoose.connect(process.env.DATABASE_URL);
+mongoose.connect(process.env.MONGODB_URI);
 const database = mongoose.connection;
 
 //check if there is an error on connecting database
