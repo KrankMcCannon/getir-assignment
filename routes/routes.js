@@ -8,7 +8,7 @@ module.exports = router;
 
 //Manually redirect to the right endpoint
 router.get('/', (req, res) => {
-  res.send('Go to /api/getInfo to see something');
+  res.send('Go to /getInfo to see something');
 }) /
 
   //Get Method
