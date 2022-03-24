@@ -71,7 +71,7 @@ const main = async () => {
     })
 
     //Allow server to listen on 3000 port
-    app.listen(PORT, () => {
+    app.listen(process.env.PORT || PORT, () => {
       console.log(`Running on http://localhost:${PORT}`);
     });
 
