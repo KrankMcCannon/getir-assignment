@@ -84,5 +84,3 @@ const main = async () => {
 
 //start connection database
 main().catch(console.error);
-
-module.exports = index;
