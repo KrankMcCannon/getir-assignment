@@ -8,6 +8,7 @@ const MongoClient = require("mongodb").MongoClient;
 const Request = require('./model/request');
 
 const PORT = 4000;
+const MONGODB_URI = 'mongodb+srv://challengeUser:WUMglwNBaydH8Yvu@challenge-xzwqd.mongodb.net/getir-case-study?authSource=admin&replicaSet=challenge-shard-0&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true';
 
 const app = express();
 app.use(cors());
@@ -23,9 +24,8 @@ const listDatabases = async (client) => {
 
 //setup database connection
 const main = async () => {
-  const MONGODB_URI = 'mongodb+srv://challengeUser:WUMglwNBaydH8Yvu@challenge-xzwqd.mongodb.net/getir-case-study?authSource=admin&replicaSet=challenge-shard-0&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true';
   //establish connection on mongodb dabatase
-  const client = new MongoClient(MONGODB_URI);
+  const client = new MongoClient(process.env.MONGODB_URI || MONGODB_URI);
   try {
     // Connect to the MongoDB cluster
     await client.connect();
