@@ -61,7 +61,7 @@ const main = async () => {
           { $unset: ["_id", "value", "counts"] }
         ]).toArray((err, result) => {
           if (err) res.send({ error: err.message });
-          if (result.length) {
+          if (result?.length) {
             response.records = result;
             res.send(response);
           } else {
