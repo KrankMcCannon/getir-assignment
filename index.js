@@ -60,7 +60,8 @@ const main = async () => {
           //remove useless fields
           { $unset: ["_id", "value", "counts"] }
         ]).toArray((err, result) => {
-          if (err) res.send({ error: err.message });
+          if (err)
+            res.send({ error: err.message });
           if (result?.length) {
             response.records = result;
             res.send(response);
@@ -83,3 +84,5 @@ const main = async () => {
 
 //start connection database
 main().catch(console.error);
+
+module.exports = index;
